@@ -1,7 +1,7 @@
 一个简单的键值对缓存工具
 
 
-写这个工具类是为了节约开发效率，其中缓存的具体实现，这个项目中已实现了两种 - FileCacheManagerImpl 、 SnappyCacheManagerImpl，即基于类的序列化  和 基于SnappyDB框架实现的存储，欢迎拓展，定制自己的内部缓存<br>
+写这个工具类是为了提高开发效率，其中缓存的具体实现，这个项目中已实现了两种 - FileCacheManagerImpl 、 SnappyCacheManagerImpl，即基于类的序列化  和 基于SnappyDB框架实现的存储，欢迎拓展，定制自己的内部缓存<br>
 使用如下<br>
 
 int
