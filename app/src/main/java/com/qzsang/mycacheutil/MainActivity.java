@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         jsonArray.put("qzsang");
         jsonArray.put("xiaowang");
         Log.e("JSONArray", builder.put( "JSONArray" ,jsonArray) + "");
+
+        //设置定时
+        builder.setTime(1L)
+                .put("time","我将在一个小时后过期");
     }
 
 
@@ -66,9 +70,19 @@ public class MainActivity extends AppCompatActivity {
         Log.e("double", builder.getDouble( "double") + "");
         Log.e("integer", builder.getInt( "integer" ) + "");
         Log.e("long", builder.getLong( "long" ) + "");
+        Log.e("Serializable", builder.get( "Serializable" ,StudentBean.class) + "");
         Log.e("JSONObject", builder.getJSONObject( "JSONObject" ) + "");
         Log.e("JSONArray", builder.getJSONArray( "JSONArray" ) + "");
-        Log.e("Serializable", builder.get( "Serializable" ,StudentBean.class) + "");
+
+        //得到定时的值
+        Log.e("time", builder.getString( "time" ) + "");//正常方式得到值： 如果过期 我将得不到值
+        builder.setKey("time")
+                .getString(new CacheUtil.GetValueCallBack<String>() {//通过回调回去值 ： 如果过期 我也能得到值
+                    @Override
+                    public void onGetValue(String result, boolean isValid) {
+                        Log.e("time", "是否有效:" + isValid + ", result：" + result);
+                    }
+                });
     }
 
 
